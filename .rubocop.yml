@@ -1,0 +1,226 @@
+Layout/IndentationWidth:
+  Enabled: false
+Layout/ElseAlignment:
+  Enabled: false
+Layout/EmptyLines:
+  Enabled: false
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: false
+Layout/EmptyLinesAroundArguments:
+  Enabled: false
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+Layout/EmptyLinesAroundMethodBody:
+  Enabled: false
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+Layout/EmptyLineAfterMagicComment:
+  Enabled: false
+Layout/EmptyLinesAroundBeginBody:
+  Enabled: false
+Layout/EmptyLinesAroundExceptionHandlingKeywords:
+  Enabled: false
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: false
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+Layout/AccessModifierIndentation:
+  Enabled: false
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+Layout/RescueEnsureAlignment:
+  Enabled: false
+Lint/BooleanSymbol:
+  Enabled: false
+Lint/PercentStringArray:
+  Enabled: false
+Lint/UnusedMethodArgument:
+  Enabled: false
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+Lint/ShadowedArgument:
+  IgnoreImplicitReferences: true
+Lint/UselessSetterCall:
+  Enabled: false
+Lint/Void:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/BlockNesting:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Naming/HeredocDelimiterNaming:
+  Enabled: false
+Naming/MethodName:
+  Enabled: false
+Naming/RescuedExceptionsVariableName:
+  Enabled: false
+Naming/VariableName:
+  Enabled: false
+Naming/AccessorMethodName:
+  Enabled: false
+Naming/PredicateName:
+  Enabled: false
+Naming/VariableNumber:
+  Enabled: false
+Security/YAMLLoad:
+  Enabled: false
+Style/MutableConstant:
+  Enabled: false
+Style/FormatStringToken:
+  Enabled: false
+Style/MultipleComparison:
+  Enabled: false
+Style/UnpackFirst:
+  Enabled: false
+Style/TrailingCommaInArguments:
+  Enabled: false
+Style/NumericLiterals:
+  Enabled: false
+Style/CommentAnnotation:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/PerlBackrefs:
+  Enabled: false
+Style/TrailingUnderscoreVariable:
+  Enabled: false
+Style/WordArray:
+  Enabled: false
+Style/NegatedIf:
+  Enabled: false
+Style/NegatedWhile:
+  Enabled: false
+Style/IfUnlessModifier:
+  Enabled: false
+Style/WhileUntilModifier:
+  Enabled: false
+Style/ConditionalAssignment:
+  Enabled: false
+Style/SymbolArray:
+  Enabled: false
+Style/RedundantBegin:
+  Enabled: false
+Style/SingleLineMethods:
+  Enabled: false
+Style/SignalException:
+  Enabled: false
+Style/RedundantSelf:
+  Enabled: false
+Style/RedundantParentheses:
+  Enabled: false
+Style/EmptyElse:
+  Enabled: false
+Style/ZeroLengthPredicate:
+  Enabled: false
+Style/ClassVars:
+  Enabled: false
+Style/AsciiComments:
+  Enabled: false
+Style/Next:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
+Style/DoubleNegation:
+  Enabled: false
+Style/NumericPredicate:
+  Enabled: false
+Style/StringLiterals:
+  Enabled: false
+Style/IfInsideElse:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/MinMax:
+  Enabled: false
+Style/StderrPuts:
+  Enabled: false
+Style/SafeNavigation:
+  Enabled: false
+Style/TernaryParentheses:
+  Enabled: false
+Layout/EmptyLineBetweenDefs:
+  AllowAdjacentOneLineDefs: true
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+Layout/CaseIndentation:
+  EnforcedStyle: end
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: start_of_line
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+Layout/SpaceInsideBlockBraces:
+  EnforcedStyle: no_space
+  SpaceBeforeBlockParameters: false
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+Lint/UnderscorePrefixedVariableName:
+  AllowKeywordBlockArguments: true
+Lint/UnusedBlockArgument:
+  AllowUnusedKeywordArguments: true
+Metrics/ParameterLists:
+  CountKeywordArgs: false
+  Max: 10
+Metrics/LineLength:
+  Enabled: false
+Naming/FileName:
+  Exclude:
+    - "build/*/autoloader/**/*"
+    - "build/bazel/proto/events/**/*"
+    - "**/Gemfile*"
+    - "Gemfile*"
+Style/InverseMethods:
+  InverseMethods:
+    :blank?: :present?
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    "%": "{}"
+    "%i": "{}"
+    "%I": "{}"
+    "%q": "{}"
+    "%Q": "{}"
+    "%r": "{}"
+    "%s": "{}"
+    "%w": "{}"
+    "%W": "{}"
+    "%x": "{}"
+Style/BarePercentLiterals:
+  EnforcedStyle: percent_q
+Style/RescueStandardError:
+  EnforcedStyle: implicit
+Style/SpecialGlobalVars:
+  EnforcedStyle: use_perl_names
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+Style/TrivialAccessors:
+  AllowPredicates: true
+  AllowDSLWriters: true
+  IgnoreClassMethods: true
+Style/SymbolLiteral:
+  Exclude:
+    - "api/lib/param_specs/**/*"
+Style/FormatString:
+  EnforcedStyle: sprintf
+Style/RaiseArgs:
+  EnforcedStyle: compact
+Style/AccessModifierDeclarations:
+  EnforcedStyle: inline
+Style/Semicolon:
+  AllowAsExpressionSeparator: true
