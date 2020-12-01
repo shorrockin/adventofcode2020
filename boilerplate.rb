@@ -37,12 +37,23 @@ end
 module AoC
   extend T::Sig
 
-  sig {params(num: Integer).void}
-  def self.part(num)
-    puts "Part #{num}:".green; yield; puts ''
+  sig {params(num: Integer, clear_screen: T::Boolean).void}
+  def self.part(num, clear_screen: false)
+    self.clear_screen if clear_screen
+    puts "Part #{num}:".green
+    puts "  #{'Solution'.green}: #{Assert.to_s(yield)}"
+    puts ''
+  end
+
+  sig {void}
+  def self.clear_screen
+    Kernel.system "clear"
   end
 
   module IO
+    extend T::Sig
+
+    sig {params(strip: T::Boolean, strip_newline: T::Boolean).returns(T::Array[String])}
     def self.input_file(strip: true, strip_newline: true)
       return @input.dup unless @input.nil? # ARGV can only be used once
 
@@ -58,10 +69,15 @@ module AoC
       else
         @input
       end
-      @input = @input[0] if @input.length == 1
       @input.dup # prevents alterations to source
     end
 
+    sig {params(strip: T::Boolean, strip_newline: T::Boolean).returns(String)}
+    def self.input_file_line(strip: true, strip_newline: true)
+      T.must(input_file[0])
+    end
+
+    sig {returns(T.nilable(String))}
     def self.read_stdin_char
       begin
         # save previous state of stty
