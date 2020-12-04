@@ -1,6 +1,7 @@
 # typed: true
 # frozen_string_literal: true
 require 'sorbet-runtime'
+require 'pry'
 
 class String
   extend T::Sig
@@ -168,7 +169,7 @@ module Assert
 
   def self.log_call(target, method, *args)
     arg_description = T.must(args.to_s[1...-1])
-    arg_description = '...' if arg_description.length > 10
+    arg_description = '...' if arg_description.length > 60
     method, arg_description = method if method.is_a?(Array)
 
     result = target.send(method, *args)
