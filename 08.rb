@@ -36,8 +36,8 @@ class Commands
 
   def run
     while !infinite_loop? && !completed_normally?
-      @history.add(@commands[@instruction])
-      @commands[@instruction].execute(self)
+      @history.add(command)
+      command.execute(self)
     end
 
     @accumulator
@@ -61,11 +61,15 @@ class Commands
   end
 
   private def infinite_loop?
-    @history.include?(@commands[@instruction])
+    @history.include?(command)
   end
 
   private def completed_normally?
     @instruction == @commands.length
+  end
+
+  private def command
+    @commands[@instruction]
   end
 end
 
