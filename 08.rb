@@ -1,6 +1,7 @@
 # typed: false
 # frozen_string_literal: true
 require './boilerplate.rb'
+require 'set'
 
 Noop = Struct.new(:id, :argument) do
   def execute(program); program.instruction += 1; end
@@ -35,8 +36,8 @@ class Commands
 
   def run
     while !infinite_loop? && !completed_normally?
-      @history.push(@commands[@instruction])
-      @history.last.execute(self)
+      @history.add(@commands[@instruction])
+      @commands[@instruction].execute(self)
     end
 
     @accumulator
@@ -56,7 +57,7 @@ class Commands
   private def reset_run_state
     @accumulator = 0
     @instruction = 0
-    @history = []
+    @history = Set.new
   end
 
   private def infinite_loop?
