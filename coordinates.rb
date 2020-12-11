@@ -7,10 +7,16 @@ module Flat
     end
 
     North = Direction.new('North', 0, -1)
+    NorthEast = Direction.new('NorthEast', 1, -1)
+    NorthWest = Direction.new('NorthWest', -1, -1)
     South = Direction.new('South', 0, 1)
-    East  = Direction.new('East', 1, 0)
-    West  = Direction.new('West', -1, 0)
-    All   = [North, South, East, West]
+    SouthEast = Direction.new('SouthEast', 1, 1)
+    SouthWest = Direction.new('SouthWest', -1, 1)
+    East = Direction.new('East', 1, 0)
+    West = Direction.new('West', -1, 0)
+
+    Beside = [North, South, East, West]
+    Adjacent = [North, NorthWest, NorthEast, South, SouthWest, SouthEast, East, West]
   end
 
   Coordinate = Struct.new(:x, :y) do
@@ -44,7 +50,7 @@ module Flat
     end
 
     def contains?(coordinate)
-      @points[coordinate].nil?
+      !@points[coordinate].nil?
     end
 
     def at(coordinate)
@@ -55,8 +61,8 @@ module Flat
       @points.hash
     end
 
-    def neighbors(coordinate, filter_prop = nil, filter_value = nil)
-      Directions::All.map do |direction|
+    def neighbors(coordinate, filter_prop=nil, filter_value=nil, neighbor_directions=Directions::Beside)
+      neighbor_directions.map do |direction|
         target_coord = coordinate.move(direction)
         target_data = at(target_coord)
         if target_data.nil? || (!filter_prop.nil? && target_data[filter_prop] != filter_value)
@@ -67,7 +73,7 @@ module Flat
     end
 
     def select(property, value)
-      @points.keys.select do |coordinate| 
+      @points.keys.select do |coordinate|
         if (attribute = at(coordinate))
           attribute[property] == value
         end
@@ -95,7 +101,7 @@ module Flat
       symbol: :symbol, 
       filler: nil, 
       labels: false,
-      from: Coordinate.new(@start_x, @start_y), 
+      from: Coordinate.new(@start_x, @start_y),
       to: Coordinate.new(@width, @height)
     )
       line_label_width = (to.y.to_s.length + 2)
