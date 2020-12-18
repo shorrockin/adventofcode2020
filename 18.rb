@@ -22,11 +22,11 @@ def eval_expression(expression, prioritize_addition=false)
   # extract and evaluation the expression, replacing them inline.
   if prioritize_addition
     while (addition = expression.match(/([0-9]+) \+ ([0-9]+)/))
-      expression = expression.gsub(addition.to_s, addition.captures.sum(&:to_i).to_s)
+      expression = expression.sub(addition.to_s, addition.captures.sum(&:to_i).to_s)
     end
   end
 
-  # iterate left to right evaluating the expression, each component with either
+  # iterate left to right evaluating the expression, each component will either
   # be an operator or a value.
   expression.split(' ').reduce([nil, nil]) do |(current_val, next_oper), component|
     if component == '+'
@@ -59,6 +59,6 @@ AoC.part 2 do
   Assert.equal 23340, sum_lines(["(((2 + 4 * 9) * (6 + 9 * 8 + 6) + 6) + 2 + 4 * 2)"], true)
   Assert.equal 30, sum_lines(["(5 + 7 + 3 + 6 + 6 + 3)"], true)
   Assert.equal 16562700, sum_lines(["5 * (9 + 3) * 7 + ((4 + 4 * 8) * (4 * 7) * (6 + 5) + 3) * 6 + 5"], true)
-  Assert.equal 1246921686, sum_lines(["9 * 6 + ((7 * 6 * 8 * 2 + 9 * 5) + (3 + 2 * 8 * 5 + 4) * 8 * 6 + 8 + 6) + 8 + (7 * (9 + 7 + 3 * 5 + 7 + 8) + (6 * 7 + 8 + 9 + 7) * 5 * (7 + 4 + 8 * 3) * (5 * 3 * 4 + 4)) + (9 * 9 + (2 + 8 * 8) * 4 + 4 * 5)"], true)
+  Assert.equal 12936, sum_lines(["(3 * 7 + 5 + (2 + 9 + 7 + 9) + 5) * 5 + 2 * 5 + 9"], true)
   sum_lines(AoC::IO.input_file, true) # should == 340789638435483
 end
